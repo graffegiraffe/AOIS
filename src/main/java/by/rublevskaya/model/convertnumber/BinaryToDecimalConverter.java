@@ -18,4 +18,30 @@ public class BinaryToDecimalConverter {
 
         return decimalValue;
     }
+
+    public String convertToBinary(int number) {
+        if (number == 0) return "0";
+        boolean isNegative = number < 0;
+        number = Math.abs(number);
+
+        StringBuilder binary = new StringBuilder();
+        while (number > 0) {
+            binary.insert(0, number % 2);
+            number /= 2;
+        }
+
+        // Добавление знакового бита
+        if (isNegative) {
+            while (binary.length() < 7) {
+                binary.insert(0, "0");
+            }
+            binary.insert(0, "1"); // 8-битная длина со знаком
+        } else {
+            while (binary.length() < 8) {
+                binary.insert(0, "0");
+            }
+        }
+        return binary.toString();
+    }
+
 }

@@ -1,4 +1,4 @@
-package by.rublevskaya.model.addition;
+package by.rublevskaya.model.operation;
 
 public class BinaryAdder {
     public String addBinary(String bin1, String bin2) {
