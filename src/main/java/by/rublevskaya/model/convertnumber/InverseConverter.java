@@ -8,14 +8,12 @@ public class InverseConverter implements BinaryConverter {
         if (number >= 0) {
             return directCodeConverter.convert(number);
         }
-
         String directCode = directCodeConverter.convert(number);
         StringBuilder inverseCode = new StringBuilder();
-        inverseCode.append("1"); // Знаковый бит
+        inverseCode.append("1");
         for (int i = 1; i < directCode.length(); i++) {
             inverseCode.append(directCode.charAt(i) == '0' ? '1' : '0');
         }
-
         return inverseCode.toString();
     }
 }
